@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+
+    <script src="../vendor/jquery/jquery-2.1.4.min.js"></script>
+    <script>
+        $.holdReady(true);
+        function isObj(){
+            return JSON.parse(localStorage.getItem("OddLotsToken"))?!0:0;
+        };
+        function expired(){
+            return (isObj() && (new Date()).getTime()<
+            parseInt(JSON.parse(localStorage["OddLotsToken"])["expires"])) ? 0 : !0;
+        };
+        !expired()&&(window.location.href += "index.html");
+        $.holdReady(false);
+    </script>
+    <title></title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        body{
+            font: 11px Arial, "Helvetica Neue", Helvetica, sans-serif;
+        }
+        .formcomponet{
+            float: left;
+        }
+        .title{
+            color: #999999;
+            line-height: 20px;
+            height: 20px;
+        }
+        .xh{
+            color: #ff0000;
+        }
+        input{
+            height: 24px;
+            width: 305px;
+        }
+    </style>
+    <link href="/vendor/kendo/styles/kendo.common.min.css" rel="stylesheet">
+    <link href="/vendor/kendo/styles/kendo.black.min.css" rel="stylesheet">
+    <link href="/../css/app.css" rel="stylesheet">
+</head>
+<body onload="expired()">
+    <div id="loginwrapper" style="position: relative; padding: 20px; border:1px solid #e1e1e1;
+     margin: 100px auto; width: 308px; height: 380px; box-shadow: 0px 0px 5px #ddd;">
+    <div id="logintitle" style="text-align: center; position: initial">
+        <img src="./image/login-logo.png" style="top: -60px; position: relative"/>
+        <div style="position: relative; top: -40px; font-size: 20px; color: #02006a">Regulatory Reporting</div>
+    </div>
+        <div id="loginform" style="text-align: center; position: initial">
+            <form id="lgf" method="post" action="login">
+                <div style="position: relative; width: auto; height: 20px;">
+                    <span class="formcomponet" ><font class="title">SOEID</font> <font class="xh">*</font> </span>
+                </div>
+                <div style="position: relative; width: auto">
+                    <input name="soeid" type="text" id="soeid"  placeholder="your soeid" class="formcomponet" autofocus/>
+                </div>
+                <div style="position: relative; width: auto; height: 20px; margin-top: 40px;">
+                    <span class="formcomponet"><font class="title">PASSWORD</font><font class="xh">*</font> </span>
+                </div>
+                <div style="position: relative; width: auto;">
+                    <input name="pwd" type="password" id="password" placeholder="your password"/>
+                </div>
+            </form>
+            <div style="position: relative; width: auto;">
+                <button id="submitbutton" style="font-size: 0px; border-radius: 10px; margin-top: 30px;
+                font-family: Arial; background: url(./image/login-btn.png); height: 35px; cursor: pointer; border: 2px;width: 308px "/>
+            </div>
+        </div>
+    </div>
+    <script data-main="login" src="./vendor/require.js"></script>
+</body>
+</html>

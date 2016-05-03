@@ -1,0 +1,229 @@
+html,
+body{
+    font-family: Arial;
+    font-size: 11px;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+header{
+    height: 36px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    line-height: 36px;
+}
+
+header h1{
+    font-size: 24px;
+    margin: 10px;
+}
+
+#main_spliter{
+    position: absolute;
+    top: 36px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: auto;
+}
+
+.grid_view, .chart_view, .page_wrapper{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: auto;
+    overflow: hidden;
+}
+
+#trend_subwrapper{
+    position: relative;
+    margin: 0;
+    padding: 0;
+    border-width: 0;
+    height: calc(100% - 36px);
+}
+
+#trend_grid, #trend_chart{
+    position: relative;
+    margin: 0;
+    padding: 0;
+    border-width: 0;
+    overflow: hidden;
+}
+
+.chart_toolbar, .grid_toolbar{
+    right: 0px;
+    left: 0px;
+}
+
+.grid_view .grid{
+    position: relative;
+    margin: 0;
+    padding: 0;
+    border-width: 0;
+    height: calc(100% - 36px);
+}
+
+.main_dialog .dialog_message > p{
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 13px;
+}
+
+.k-spreadsheet{
+    height: 340px;
+    width: 1050px;
+}
+
+.k-spreadsheet .k-spreadsheet-scroller{
+    overflow: auto;
+}
+
+.k-spreadsheet-active-cell .k-single{
+    background-color: transparent;
+}
+
+#main .k-treeview{
+    margin-top: 10px;
+}
+
+#main .k-treeview a{
+    color: #efefef;
+}
+
+#main .k-treeview a.k-state-selected{
+    color: #efefef;
+}
+
+#main .k-treeview .k-group a{
+    padding-left: 15px;
+}
+
+#main .k-treeview .k-group a{
+    margin-left: -15px;
+}
+
+#main .k-treeview .k-in, .bloomberg .k-treeview .k-in a{
+    display: block;
+    border: 0;
+    margin: 0;
+    padding: 7px 10px 7px 40px;
+    text-decoration: none;
+    font-size: 13px;
+    line-height: 15px;
+}
+
+.k-grid table{
+    table-layout: fixed;
+}
+
+.k-grid td{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.fr{
+    float: right;
+}
+
+.mt2{
+    margin-top: 2px;
+}
+
+.tc{
+    text-align: center;
+}
+
+.tr{
+    text-align: right;
+}
+
+.gray{
+    color: #BBB;
+}
+
+.blue{
+    color: #62B0DF;
+}
+
+.orange{
+    color: #ef8c00;
+}
+
+.green{
+    color: #4fb671;
+}
+
+.red{
+    color: #b90f0f;
+}
+
+.b{
+    font-weight: bold;
+    font-size: 14px;
+}
+
+#basel_wrapper .k-grouping-header{
+    display: none;
+}
+
+#basel_wrapper .k-reset{
+    float: left;
+    margin-top: 2.5px;
+}
+
+#basel_wrapper .summary-basel-aggregate-value{
+    float: right;
+    text-align: left;
+}
+
+#basel_wrapper .summary-basel-aggregate-title{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    float: left;
+}
+
+#basel_wrapper .summary-basel-aggregate-vertical-align{
+    text-indent: 6.6px;
+    margin-top: 2.5px;
+}
+
+#basel_wrapper .k-group-cell{
+    border-color: transparent;
+}
+
+#basel_wrapper .k-grouping-row td{
+    padding-right: 0;
+}
+
+.footerTemplete{
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+#top10_wrapper .top10as{
+    color: rgb(132, 189, 0);
+    font-size: 20px;
+    width: 100%;
+    display: inline-block;
+}
+
+#top10_wrapper .top10-groupheader-index-transparent{
+    display: none;
+}
+
+.top10-capital-groupfooter-label{
+    width: 100%;
+    display: inline-block;
+}
+
+
+
+
+
+

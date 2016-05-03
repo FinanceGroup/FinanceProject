@@ -1,0 +1,622 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5E5EC40E-072E-4BD5-AA5B-5CD6C9055088}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Finance.Standlone</RootNamespace>
+    <AssemblyName>Finance.Standlone</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.3.5.0\lib\net40\Autofac.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Autofac.Integration.Owin, Version=3.1.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.Owin.3.1.0\lib\net45\Autofac.Integration.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Autofac.Integration.WebApi, Version=3.4.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.WebApi2.3.4.0\lib\net45\Autofac.Integration.WebApi.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Autofac.Integration.WebApi.Owin, Version=3.3.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.WebApi2.Owin.3.3.0\lib\net45\Autofac.Integration.WebApi.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Castle.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Core.3.3.3\lib\net45\Castle.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FluentNHibernate, Version=2.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentNHibernate.2.0.3.0\lib\net40\FluentNHibernate.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Iesi.Collections, Version=4.0.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Iesi.Collections.4.0.0.4000\lib\net40\Iesi.Collections.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.FileSystems, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.FileSystems.3.0.1\lib\net45\Microsoft.Owin.FileSystems.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.HttpListener, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.HttpListener.3.0.1\lib\net45\Microsoft.Owin.Host.HttpListener.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Hosting, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Hosting.3.0.1\lib\net45\Microsoft.Owin.Hosting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.StaticFiles, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.StaticFiles.3.0.1\lib\net45\Microsoft.Owin.StaticFiles.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NHibernate, Version=4.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\NHibernate.4.0.0.4000\lib\net40\NHibernate.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.0\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Web.Http, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.0\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.Owin, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Owin.5.2.0\lib\net45\System.Web.Http.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controllers\TestController.cs" />
+    <Compile Include="Controllers\IdentityController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Conventions\BinaryColumnLengthConvention.cs" />
+    <Compile Include="Conventions\ClassNameConvention.cs" />
+    <Compile Include="Conventions\ColumnNullableConvention.cs" />
+    <Compile Include="Conventions\DecimalColumnConvention.cs" />
+    <Compile Include="Conventions\IdConvention.cs" />
+    <Compile Include="Conventions\StringColumnLengthConvention.cs" />
+    <Compile Include="Data\SessionFactoryHolder.cs" />
+    <Compile Include="OAuth\Esat2Authorize.cs" />
+    <Compile Include="OAuth\SsoAuthenticate.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Webapp\WebApiConfig.cs" />
+    <Compile Include="Webapp\WebAppServiceHost.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Webapp\WebConstants.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+    <None Include="wwwroot\vendor\kendo\styles\fonts\DejaVu\DejaVuSans-Bold.ttf" />
+    <None Include="wwwroot\vendor\kendo\styles\fonts\DejaVu\DejaVuSans-BoldOblique.ttf" />
+    <None Include="wwwroot\vendor\kendo\styles\fonts\DejaVu\DejaVuSans-ExtraLight.ttf" />
+    <None Include="wwwroot\vendor\kendo\styles\fonts\DejaVu\DejaVuSans-Oblique.ttf" />
+    <None Include="wwwroot\vendor\kendo\styles\fonts\DejaVu\DejaVuSans.ttf" />
+    <None Include="wwwroot\vendor\kendo\styles\fonts\DejaVu\DejaVuSansMono-Bold.ttf" />
+    <None Include="wwwroot\vendor\kendo\styles\fonts\DejaVu\DejaVuSansMono-BoldOblique.ttf" />
+    <None Include="wwwroot\vendor\kendo\styles\fonts\DejaVu\DejaVuSansMono-Oblique.ttf" />
+    <None Include="wwwroot\vendor\kendo\styles\fonts\DejaVu\DejaVuSansMono.ttf" />
+    <None Include="wwwroot\vendor\kendo\styles\fonts\DejaVu\DejaVuSerif-Bold.ttf" />
+    <None Include="wwwroot\vendor\kendo\styles\fonts\DejaVu\DejaVuSerif-BoldItalic.ttf" />
+    <None Include="wwwroot\vendor\kendo\styles\fonts\DejaVu\DejaVuSerif-Italic.ttf" />
+    <None Include="wwwroot\vendor\kendo\styles\fonts\DejaVu\DejaVuSerif.ttf" />
+    <None Include="wwwroot\vendor\kendo\styles\fonts\glyphs\KendoUIGlyphs.eot" />
+    <None Include="wwwroot\vendor\kendo\styles\fonts\glyphs\KendoUIGlyphs.ttf" />
+    <None Include="wwwroot\vendor\kendo\styles\fonts\glyphs\KendoUIGlyphs.woff" />
+    <None Include="wwwroot\vendor\kendo\styles\images\kendoui.ttf" />
+    <None Include="wwwroot\vendor\kendo\styles\images\kendoui.woff" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.black.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.black.mobile.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.blueopal.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.blueopal.mobile.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.bootstrap.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.bootstrap.mobile.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.common-bootstrap.core.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.common-bootstrap.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.common-fiori.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.common-material.core.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.common-material.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.common-nova.core.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.common-nova.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.common-office365.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.common.core.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.common.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.dataviz.black.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.dataviz.blueopal.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.dataviz.bootstrap.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.dataviz.default.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.dataviz.fiori.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.dataviz.flat.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.dataviz.highcontrast.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.dataviz.material.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.dataviz.materialblack.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.dataviz.metro.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.dataviz.metroblack.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.dataviz.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.dataviz.mobile.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.dataviz.moonlight.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.dataviz.nova.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.dataviz.office365.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.dataviz.silver.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.dataviz.uniform.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.default.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.default.mobile.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.fiori.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.fiori.mobile.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.flat.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.flat.mobile.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.highcontrast.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.highcontrast.mobile.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.material.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.material.mobile.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.materialblack.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.materialblack.mobile.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.metro.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.metro.mobile.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.metroblack.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.metroblack.mobile.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.mobile.all.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.mobile.android.dark.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.mobile.android.light.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.mobile.blackberry.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.mobile.common.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.mobile.fiori.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.mobile.flat.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.mobile.ios.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.mobile.material.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.mobile.meego.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.mobile.nova.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.mobile.office365.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.mobile.wp8.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.moonlight.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.moonlight.mobile.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.nova.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.nova.mobile.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.office365.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.office365.mobile.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.rtl.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.silver.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.silver.mobile.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.uniform.min.css.map" />
+    <None Include="wwwroot\vendor\kendo\styles\kendo.uniform.mobile.min.css.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Finance.Framework\Finance.Framework.csproj">
+      <Project>{586f9db3-6110-4442-bf4c-578b13821ced}</Project>
+      <Name>Finance.Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Finance.DAL\Finance.DAL.csproj">
+      <Project>{8c249856-d63b-4e25-a042-b082a997cf13}</Project>
+      <Name>Finance.DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Managers\" />
+    <Folder Include="wwwroot\image\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="wwwroot\scripts\localSettings.js" />
+    <Content Include="wwwroot\vendor\jquery\jquery-2.1.4.min.js" />
+    <Content Include="wwwroot\vendor\jquery\jquery.min.js" />
+    <Content Include="wwwroot\vendor\jszip\jszip.min.js" />
+    <Content Include="wwwroot\vendor\kendo\kendo.all.min.js" />
+    <Content Include="wwwroot\css\app.css" />
+    <Content Include="wwwroot\login.html" />
+    <Content Include="wwwroot\login.js" />
+    <Content Include="wwwroot\vendor\kendo\styles\Black\editor.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Black\imagebrowser.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Black\indeterminate.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Black\loading-image.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Black\loading.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Black\loading_2x.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Black\markers.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Black\markers_2x.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Black\slider-h.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Black\slider-v.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Black\sprite.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Black\sprite_2x.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Black\sprite_kpi.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Black\sprite_kpi_2x.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\BlueOpal\editor.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\BlueOpal\imagebrowser.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\BlueOpal\indeterminate.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\BlueOpal\loading-image.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\BlueOpal\loading.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\BlueOpal\loading_2x.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\BlueOpal\markers.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\BlueOpal\markers_2x.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\BlueOpal\slider-h.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\BlueOpal\slider-v.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\BlueOpal\sprite.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\BlueOpal\sprite_2x.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\BlueOpal\sprite_kpi.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\BlueOpal\sprite_kpi_2x.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Bootstrap\editor.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Bootstrap\imagebrowser.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Bootstrap\indeterminate.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Bootstrap\loading-image.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Bootstrap\loading.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Bootstrap\loading_2x.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Bootstrap\markers.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Bootstrap\markers_2x.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Bootstrap\slider-h.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Bootstrap\slider-v.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Bootstrap\sprite.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Bootstrap\sprite_2x.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Bootstrap\sprite_kpi.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Bootstrap\sprite_kpi_2x.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Default\editor.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Default\imagebrowser.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Default\indeterminate.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Default\loading-image.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Default\loading.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Default\loading_2x.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Default\markers.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Default\markers_2x.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Default\slider-h.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Default\slider-v.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Default\sprite.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Default\sprite_2x.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Default\sprite_kpi.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Default\sprite_kpi_2x.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Fiori\editor.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Fiori\imagebrowser.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Fiori\indeterminate.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Fiori\loading-image.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Fiori\loading.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Fiori\loading_2x.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Fiori\markers.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Fiori\markers_2x.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Fiori\slider-h.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Fiori\slider-v.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Fiori\sprite.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Fiori\sprite_2x.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Fiori\sprite_kpi.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Fiori\sprite_kpi_2x.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Flat\editor.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Flat\imagebrowser.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Flat\indeterminate.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Flat\loading-image.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Flat\loading.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Flat\loading_2x.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Flat\markers.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Flat\markers_2x.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Flat\slider-h.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Flat\slider-v.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Flat\sprite.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Flat\sprite_2x.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Flat\sprite_kpi.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Flat\sprite_kpi_2x.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\fonts\DejaVu\LICENSE.txt" />
+    <Content Include="wwwroot\vendor\kendo\styles\fonts\glyphs\KendoUIGlyphs.svg" />
+    <Content Include="wwwroot\vendor\kendo\styles\HighContrast\editor.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\HighContrast\imagebrowser.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\HighContrast\indeterminate.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\HighContrast\loading-image.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\HighContrast\loading.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\HighContrast\loading_2x.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\HighContrast\markers.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\HighContrast\markers_2x.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\HighContrast\slider-h.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\HighContrast\slider-v.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\HighContrast\sprite.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\HighContrast\sprite_2x.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\HighContrast\sprite_kpi.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\HighContrast\sprite_kpi_2x.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\images\back.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\images\kendoui.svg" />
+    <Content Include="wwwroot\vendor\kendo\styles\images\wp8_icons.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\images\wp8_inverseicons.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.black.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.black.mobile.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.blueopal.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.blueopal.mobile.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.bootstrap.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.bootstrap.mobile.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.common-bootstrap.core.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.common-bootstrap.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.common-fiori.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.common-material.core.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.common-material.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.common-nova.core.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.common-nova.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.common-office365.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.common.core.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.common.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.dataviz.black.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.dataviz.blueopal.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.dataviz.bootstrap.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.dataviz.default.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.dataviz.fiori.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.dataviz.flat.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.dataviz.highcontrast.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.dataviz.material.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.dataviz.materialblack.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.dataviz.metro.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.dataviz.metroblack.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.dataviz.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.dataviz.mobile.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.dataviz.moonlight.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.dataviz.nova.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.dataviz.office365.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.dataviz.silver.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.dataviz.uniform.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.default.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.default.mobile.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.fiori.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.fiori.mobile.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.flat.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.flat.mobile.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.highcontrast.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.highcontrast.mobile.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.material.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.material.mobile.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.materialblack.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.materialblack.mobile.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.metro.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.metro.mobile.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.metroblack.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.metroblack.mobile.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.mobile.all.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.mobile.android.dark.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.mobile.android.light.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.mobile.blackberry.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.mobile.common.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.mobile.fiori.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.mobile.flat.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.mobile.ios.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.mobile.material.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.mobile.meego.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.mobile.nova.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.mobile.office365.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.mobile.wp8.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.moonlight.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.moonlight.mobile.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.nova.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.nova.mobile.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.office365.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.office365.mobile.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.rtl.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.silver.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.silver.mobile.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.uniform.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\kendo.uniform.mobile.min.css" />
+    <Content Include="wwwroot\vendor\kendo\styles\MaterialBlack\editor.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\MaterialBlack\imagebrowser.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\MaterialBlack\indeterminate.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\MaterialBlack\loading-image.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\MaterialBlack\loading.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\MaterialBlack\loading_2x.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\MaterialBlack\markers.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\MaterialBlack\markers_2x.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\MaterialBlack\slider-h.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\MaterialBlack\slider-v.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\MaterialBlack\sprite.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\MaterialBlack\sprite_2x.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\MaterialBlack\sprite_kpi.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\MaterialBlack\sprite_kpi_2x.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Material\editor.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Material\imagebrowser.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Material\indeterminate.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Material\loading-image.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Material\loading.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Material\loading_2x.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Material\markers.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Material\markers_2x.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Material\slider-h.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Material\slider-v.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Material\sprite.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Material\sprite_2x.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Material\sprite_kpi.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Material\sprite_kpi_2x.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\MetroBlack\editor.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\MetroBlack\imagebrowser.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\MetroBlack\indeterminate.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\MetroBlack\loading-image.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\MetroBlack\loading.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\MetroBlack\loading_2x.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\MetroBlack\markers.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\MetroBlack\markers_2x.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\MetroBlack\slider-h.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\MetroBlack\slider-v.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\MetroBlack\sprite.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\MetroBlack\sprite_2x.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\MetroBlack\sprite_kpi.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\MetroBlack\sprite_kpi_2x.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Metro\editor.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Metro\imagebrowser.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Metro\indeterminate.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Metro\loading-image.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Metro\loading.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Metro\loading_2x.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Metro\markers.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Metro\markers_2x.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Metro\slider-h.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Metro\slider-v.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Metro\sprite.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Metro\sprite_2x.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Metro\sprite_kpi.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Metro\sprite_kpi_2x.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Moonlight\editor.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Moonlight\imagebrowser.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Moonlight\indeterminate.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Moonlight\loading-image.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Moonlight\loading.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Moonlight\loading_2x.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Moonlight\markers.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Moonlight\markers_2x.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Moonlight\slider-h.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Moonlight\slider-v.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Moonlight\sprite.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Moonlight\sprite_2x.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Moonlight\sprite_kpi.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Moonlight\sprite_kpi_2x.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Nova\editor.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Nova\imagebrowser.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Nova\indeterminate.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Nova\loading-image.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Nova\loading.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Nova\loading_2x.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Nova\markers.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Nova\markers_2x.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Nova\slider-h.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Nova\slider-v.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Nova\sprite.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Nova\sprite_2x.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Nova\sprite_kpi.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Nova\sprite_kpi_2x.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Office365\editor.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Office365\imagebrowser.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Office365\indeterminate.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Office365\loading-image.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Office365\loading.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Office365\loading_2x.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Office365\markers.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Office365\markers_2x.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Office365\slider-h.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Office365\slider-v.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Office365\sprite.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Office365\sprite_2x.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Office365\sprite_kpi.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Office365\sprite_kpi_2x.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Silver\editor.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Silver\imagebrowser.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Silver\indeterminate.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Silver\loading-image.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Silver\loading.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Silver\loading_2x.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Silver\markers.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Silver\markers_2x.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Silver\slider-h.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Silver\slider-v.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Silver\sprite.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Silver\sprite_2x.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Silver\sprite_kpi.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Silver\sprite_kpi_2x.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\textures\brushed-metal.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\textures\dots1.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\textures\dots10.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\textures\dots11.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\textures\dots12.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\textures\dots13.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\textures\dots2.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\textures\dots3.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\textures\dots4.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\textures\dots5.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\textures\dots6.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\textures\dots7.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\textures\dots8.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\textures\dots9.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\textures\glass-lighter.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\textures\glass.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\textures\highlight.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\textures\hsv-gradient.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\textures\hue.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\textures\leather1.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\textures\leather2.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\textures\noise.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\textures\stripe1.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\textures\stripe2.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\textures\stripe3.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\textures\stripe4.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\textures\stripe5.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\textures\stripe6.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\textures\transparency.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\textures\transtexture.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Uniform\editor.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Uniform\imagebrowser.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Uniform\indeterminate.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Uniform\loading-image.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Uniform\loading.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Uniform\loading_2x.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Uniform\markers.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Uniform\markers_2x.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Uniform\slider-h.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Uniform\slider-v.gif" />
+    <Content Include="wwwroot\vendor\kendo\styles\Uniform\sprite.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Uniform\sprite_2x.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Uniform\sprite_kpi.png" />
+    <Content Include="wwwroot\vendor\kendo\styles\Uniform\sprite_kpi_2x.png" />
+    <Content Include="wwwroot\vendor\r.js" />
+    <Content Include="wwwroot\vendor\require.js" />
+    <Content Include="wwwroot\views\index.html" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
