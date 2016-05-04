@@ -13,7 +13,7 @@
             return (isObj() && (new Date()).getTime()<
             parseInt(JSON.parse(localStorage["OddLotsToken"])["expires"])) ? 0 : !0;
         };
-        !expired()&&(window.location.href += "index.html");
+        !expired()&&(window.location.href += "views/index.html");
         $.holdReady(false);
     </script>
     <title></title>

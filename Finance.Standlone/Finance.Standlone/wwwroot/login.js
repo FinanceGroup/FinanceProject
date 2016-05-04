@@ -44,7 +44,7 @@ define('login', ['jquery', 'kendo.all.min', 'localSettings'], function ($, kendo
             url: formUrl,
             type: "POST",
             contentType:"application/json; charset=utf-8",
-            dataType: "type",
+            dataType: "text",
             data: JSON.stringify(pd),
             beforeSend: function(e){
                 kendo.ui.progress($("body"),true);
