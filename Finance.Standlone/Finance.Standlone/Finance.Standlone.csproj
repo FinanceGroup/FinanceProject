@@ -265,7 +265,10 @@
     <Folder Include="wwwroot\image\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="wwwroot\scripts\app.js" />
+    <Content Include="wwwroot\scripts\events.js" />
     <Content Include="wwwroot\scripts\localSettings.js" />
+    <Content Include="wwwroot\scripts\util.js" />
     <Content Include="wwwroot\vendor\jquery\jquery-2.1.4.min.js" />
     <Content Include="wwwroot\vendor\jquery\jquery.min.js" />
     <Content Include="wwwroot\vendor\jszip\jszip.min.js" />

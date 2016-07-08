@@ -43,8 +43,8 @@ namespace Finance.Standlone.Controllers
                 response.EnsureSuccessStatusCode();
                 string tokenResponse = response.Content.ReadAsStringAsync().Result;
                 var result = JsonConvert.DeserializeObject<Dictionary<string, string>>(tokenResponse);
-                string dd = tokenResponse.Substring(0, tokenResponse.Length - 1);
-                //+ ",\"url\":\"" + _financeConfigManager.SiteUrl + "/views/index.html\"}";
+                string dd = tokenResponse.Substring(0, tokenResponse.Length - 1)
+                + ",\"url\":\"" + _financeConfigManager.SiteUrl + "/views/index.html\"}";
                 return Request.CreateResponse(HttpStatusCode.OK, dd);
             }
             return Request.CreateResponse(response.StatusCode, "Please check your Username/Password and try again");
