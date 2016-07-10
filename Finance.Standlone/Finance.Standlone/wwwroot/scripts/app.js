@@ -111,6 +111,63 @@ define('app',['jquery','jszip','kendo','localSettings','events','util'],
             });
         };
 
+        function init_view(){
+            var windowSplitterRate = 0.15;
+            var formerWindowWidth = window.innerWidth;
+            $('#main_toolbar').kendoToolBar({
+                items: [
+                    { template: '<h1> Regulatory Reporting / <span id="main_view_title"></span></h1>'},
+                    { type: 'button', text: 'Logout', attributes: {style:
+                    'float:right; margin-top:6px;'},
+                     click: function (e){
+                         localSettings.fire();
+                         window.location.replace(window.location.origin);
+                     }
+                    },
+                    { type: 'separator', attributes:{ style: 'float:right; margin-top:8px'}},
+                    { template: '<span><label>User:</label><label class="b">' +
+                    JSON.parse(localStorage.getItem('OddLotsToken')).user + '</label></span>',
+                        attributes: { style: 'float:right; margin-top:6px; margin-right:5px'}
+                    },
+                ]
+            });
+            var mainSplitter = $('#main_splitter').kendoSplitter({
+                panes: [{size: windowSplitterRate * 100 + '%', min: '10%', max: '50%'}],
+                resize: function(e){
+                    if (window.innerWidth === formerWindowWidth){
+                        windowSplitterRate = $(this._panes()[0]).width() / formerWindowWidth;
+                        windowSplitterRate = windowSplitterRate > 0.5 ? 0.5 : windowSplitterRate;
+                    }
+                    else{
+                        formerWindowWidth = window.innerWidth;
+                        this.size(this._panes()[0], windowSplitterRate * 100 + "%");
+                    }
+                }
+            });
+            $('#page_nav').kendoTreeView({
+                dataUrlField: 'linksTo',
+                dataSource: {
+                    data: views.filter(function(e){
+                        return e.module && modules.includes(e.module);
+                    }).map(function (view){
+                        view.items && (view.items = view.items.filter(function(e){
+                            return arguments[0].module && !modules.includes(arguments[0].module);
+                        }));
+                        return view;
+                    }),
+                    schema: { model:{id:'module'}}
+                }
+            });
+            $('#popupNotification').kendoNotification({
+                position:{
+                    top: 2,
+                    left: null,
+                    bottom: null,
+                    right: 30
+                }
+            });
+        };
+
         function add_event_handlers(){
             events.subscribe('app.change_main_view_title', function(main_view_title){
                 $('#main_view_title').text(main_view_title);
@@ -123,7 +180,7 @@ define('app',['jquery','jszip','kendo','localSettings','events','util'],
                 type:'POST',
                 contentType:'application/json',
                 beforeSend: function(xhr){
-                    xhr.setRequestHeader('Authorization', "Bearer" + JSON.parse(localSettings.getItem("OddLotsToken")).token);
+                    xhr.setRequestHeader('Authorization', "Bearer" + JSON.parse(localStorage.getItem("OddLotsToken")).token);
                 },
                 success: function(response){
                     var roleMap = JSON.parse(response);
