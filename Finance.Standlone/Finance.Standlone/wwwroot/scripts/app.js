@@ -11,6 +11,9 @@
             '*':{
                 'kendo': 'kendo.all.min',
 
+                'signalr.core': '../verdor/signalR/jquery.signalR-2.2.0.min',
+                'signalr.hubs': '/signalr/hubs?'
+
                 //'hierarchy': 'hierarchy/hierarchy',
                 //'hierarchyGrid':'hierarchy/hierarchyGrid',
 
@@ -44,6 +47,13 @@
             },
             util:{
                 deps:['jquery']
+            },
+            'signalr.core': {
+                deps: ['jquery'],
+                exports: '$.connection'
+            },
+            'signalr.hubs': {
+                deps: ['signalr.core']
             }
         }
     });
@@ -57,20 +67,20 @@ define('app',['jquery','jszip','kendo','localSettings','events','util'],
         localSettings.relogin();
         $('#main_wrapper').fadeIn();
         var views = [
-            {text: 'Odd Lot Summary', module:'summary', role:'oddlots', linksTos:'#oddlotSummary'},
-            {text: 'OddLots', module:'oddlots', role:'oddlots', linksTo:'#oddlots'},
-            {text: 'Non-Agency SSFA Top 10', module:'top10', role:'top10', linksTo:'#top10'},
-            {text: 'Non-Agency SSFA Detail', module:'SSFA', role:'top10', linksTo:'SSFA'},
-            {text: 'Hierarchy', module:'hierarchy', role:'hierarchy', linksTo:'hierarchy'},
-            {text: 'Payup Grid', module:'payup', role:'payupgrid', linksTo:'#payup'}
+            //{text: 'Odd Lot Summary', module:'summary', role:'oddlots', linksTos:'#oddlotSummary'},
+            //{text: 'OddLots', module:'oddlots', role:'oddlots', linksTo:'#oddlots'},
+            //{text: 'Non-Agency SSFA Top 10', module:'top10', role:'top10', linksTo:'#top10'},
+            //{text: 'Non-Agency SSFA Detail', module:'SSFA', role:'top10', linksTo:'SSFA'},
+            //{text: 'Hierarchy', module:'hierarchy', role:'hierarchy', linksTo:'hierarchy'},
+            //{text: 'Payup Grid', module:'payup', role:'payupgrid', linksTo:'#payup'}
         ];
         var routers = [
-            {path: 'oddlotSummary', moduleName: 'summary', viewPath: '/views/summary/summary.html'},
-            {path: 'oddlots', moduleName: 'oddlots', viewPath: '/views/oddlots/oddlots.html'},
-            {path: 'hierarchy', module: 'hierarchy', viewPath: '/views/hierarchy/hierarchy.html'},
-            {path: 'top10', module: 'top10', viewPath: '/views/top10/top10.html'},
-            {path: 'SSFA', moduleName: 'SSFA', viewPath: '/views/SSFA/SSFA.html'},
-            {path: 'payup', moduleName: 'payup', viewPath: '/views/payup/payup.html'}
+            //{path: 'oddlotSummary', moduleName: 'summary', viewPath: '/views/summary/summary.html'},
+            //{path: 'oddlots', moduleName: 'oddlots', viewPath: '/views/oddlots/oddlots.html'},
+            //{path: 'hierarchy', module: 'hierarchy', viewPath: '/views/hierarchy/hierarchy.html'},
+            //{path: 'top10', module: 'top10', viewPath: '/views/top10/top10.html'},
+            //{path: 'SSFA', moduleName: 'SSFA', viewPath: '/views/SSFA/SSFA.html'},
+            //{path: 'payup', moduleName: 'payup', viewPath: '/views/payup/payup.html'}
         ];
         var router = new kendo.Router({
             routeMissing: function(){ router.navigate('');}
