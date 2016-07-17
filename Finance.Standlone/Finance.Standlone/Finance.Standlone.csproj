@@ -157,6 +157,7 @@
     <Compile Include="OAuth\SsoAuthenticate.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RoleConstant.cs" />
     <Compile Include="Webapp\WebApiConfig.cs" />
     <Compile Include="Webapp\WebAppServiceHost.cs">
       <SubType>Component</SubType>
@@ -282,6 +283,8 @@
     <Content Include="wwwroot\config\grid_options.js" />
     <Content Include="wwwroot\config\hubs.js" />
     <Content Include="wwwroot\scripts\app.js" />
+    <Content Include="wwwroot\scripts\currency\currency.js" />
+    <Content Include="wwwroot\scripts\currency\currencyGrid.js" />
     <Content Include="wwwroot\scripts\events.js" />
     <Content Include="wwwroot\scripts\localSettings.js" />
     <Content Include="wwwroot\scripts\Payup.js" />
@@ -631,6 +634,7 @@
     <Content Include="wwwroot\vendor\kendo\styles\Uniform\sprite_kpi_2x.png" />
     <Content Include="wwwroot\vendor\r.js" />
     <Content Include="wwwroot\vendor\require.js" />
+    <Content Include="wwwroot\views\currency\currency.html" />
     <Content Include="wwwroot\views\index.html" />
     <Content Include="wwwroot\views\payup.html" />
   </ItemGroup>
