@@ -17,7 +17,6 @@
                 'signalr.core': '../verdor/signalR/jquery.signalR-2.2.0.min',
                 'signalr.hubs': '/signalr/hubs?',
 
-
                 'currency': 'currency/currency',
                 'currencyGrid': 'currency/currencyGrid',
 
