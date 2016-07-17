@@ -11,8 +11,14 @@
             '*':{
                 'kendo': 'kendo.all.min',
 
+                'grid_options': '../config/grid_options',
+                'hubs': '../config/hubs',
+
                 'signalr.core': '../verdor/signalR/jquery.signalR-2.2.0.min',
-                'signalr.hubs': '/signalr/hubs?'
+                'signalr.hubs': '/signalr/hubs?',
+
+                'currency': 'currency/currency',
+                'currencyGrid': 'currency/currencyGrid',
 
                 //'hierarchy': 'hierarchy/hierarchy',
                 //'hierarchyGrid':'hierarchy/hierarchyGrid',
@@ -67,6 +73,7 @@ define('app',['jquery','jszip','kendo','localSettings','events','util'],
         localSettings.relogin();
         $('#main_wrapper').fadeIn();
         var views = [
+            { text: 'Currency', module: 'currency', role: 'Currency', linksTos: '#currency' },
             //{text: 'Odd Lot Summary', module:'summary', role:'oddlots', linksTos:'#oddlotSummary'},
             //{text: 'OddLots', module:'oddlots', role:'oddlots', linksTo:'#oddlots'},
             //{text: 'Non-Agency SSFA Top 10', module:'top10', role:'top10', linksTo:'#top10'},
@@ -75,6 +82,7 @@ define('app',['jquery','jszip','kendo','localSettings','events','util'],
             //{text: 'Payup Grid', module:'payup', role:'payupgrid', linksTo:'#payup'}
         ];
         var routers = [
+            { path: 'currency', moduleName: 'currency', viewPath: '/views/currency/currency.html' },
             //{path: 'oddlotSummary', moduleName: 'summary', viewPath: '/views/summary/summary.html'},
             //{path: 'oddlots', moduleName: 'oddlots', viewPath: '/views/oddlots/oddlots.html'},
             //{path: 'hierarchy', module: 'hierarchy', viewPath: '/views/hierarchy/hierarchy.html'},
