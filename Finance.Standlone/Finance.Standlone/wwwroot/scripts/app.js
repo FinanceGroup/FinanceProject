@@ -12,7 +12,7 @@
                 'kendo': 'kendo.all.min',
 
                 'signalr.core': '../verdor/signalR/jquery.signalR-2.2.0.min',
-                'signalr.hubs': '/signalr/hubs?'
+                'signalr.hubs': '/signalr/hubs?',
 
                 //'hierarchy': 'hierarchy/hierarchy',
                 //'hierarchyGrid':'hierarchy/hierarchyGrid',
