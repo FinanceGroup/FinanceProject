@@ -34,3 +34,4 @@ obj/
 bin/
 release/
 .vs/
+*.xml
