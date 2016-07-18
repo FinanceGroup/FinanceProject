@@ -5,17 +5,11 @@
 (function (){
     requirejs.config({
         baseUrl: '/scripts',
-        urlArgs: 'r=' ,//+ (+new Date),
+        //urlArgs: 'r=' + (+new Date),
         waitSeconds: 0,
         map:{
             '*':{
                 'kendo': 'kendo.all.min',
-
-                'grid_options': '../config/grid_options',
-                'hubs': '../config/hubs',
-
-                'signalr.core': '../verdor/signalR/jquery.signalR-2.2.0.min',
-                'signalr.hubs': '/signalr/hubs?',
 
                 'currency': 'currency/currency',
                 'currencyGrid': 'currency/currencyGrid',
@@ -45,7 +39,10 @@
             text:'//cdnjs.cloudflare.com/ajax/libs/require-text/2.0.12/text.min',
             jquery:'../vendor/jquery/jquery-2.1.4.min',
             jszip:'../vendor/jszip/jszip.min',
-            'kendo.all.min':'../vendor/kendo/kendo.all.min'
+            'kendo.all.min': '../vendor/kendo/kendo.all.min',
+
+            'signalr.core': '../verdor/signalR/jquery.signalR-2.2.0.min',
+            'signalr.hubs': '/signalr/hubs?',
         },
         shim:{
             kendo:{
@@ -115,7 +112,7 @@ define('app',['jquery','jszip','kendo','localSettings','events','util'],
                 router.oldPath = path;
                 kendo.ui.progress($(document.body), true);
                 require(['text!' + viewPath], function(html){
-                    require([moduleName], function(html){
+                    require([moduleName], function (module) {
                         router.oldModule && router.oldModule.unactive && router.oldModule.unactive();
                         $('#main_view').html(html);
                         try{

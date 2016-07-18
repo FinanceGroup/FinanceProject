@@ -28,7 +28,7 @@ function ($, kendo, events, util, grid_options, template, hubs) {
     dataSource.page(0);
 
     function init(options) {
-        $wrapper = $('#payupGrid');
+        $wrapper = $('#currencyGrid');
         isReadOnly = options.isReadOnly;
         isActive = true;
         initToolbar();
@@ -45,7 +45,7 @@ function ($, kendo, events, util, grid_options, template, hubs) {
     }
 
     function startHub() {
-        hub = hubs.getHub('PayUpGrid');
+        hub = hubs.getHub('CurrencyGridHub');
         hub.on('addItem', function () {
             showNotification('New item is added, please refresh.', 'info', {}, $wrapper);
         });
