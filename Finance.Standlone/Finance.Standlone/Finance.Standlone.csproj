@@ -142,6 +142,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\CurrencyController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Controllers\IdentityController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -280,12 +281,12 @@
     <Content Include="Scripts\jquery-1.6.4.min.js" />
     <Content Include="Scripts\jquery.signalR-2.2.0.js" />
     <Content Include="Scripts\jquery.signalR-2.2.0.min.js" />
-    <Content Include="wwwroot\config\grid_options.js" />
-    <Content Include="wwwroot\config\hubs.js" />
+    <Content Include="wwwroot\scripts\config\grid_options.js" />
     <Content Include="wwwroot\scripts\app.js" />
     <Content Include="wwwroot\scripts\currency\currency.js" />
     <Content Include="wwwroot\scripts\currency\currencyGrid.js" />
     <Content Include="wwwroot\scripts\events.js" />
+    <Content Include="wwwroot\scripts\hubs.js" />
     <Content Include="wwwroot\scripts\localSettings.js" />
     <Content Include="wwwroot\scripts\Payup.js" />
     <Content Include="wwwroot\scripts\payupGrid.js" />
@@ -634,6 +635,7 @@
     <Content Include="wwwroot\vendor\kendo\styles\Uniform\sprite_kpi_2x.png" />
     <Content Include="wwwroot\vendor\r.js" />
     <Content Include="wwwroot\vendor\require.js" />
+    <Content Include="wwwroot\vendor\signalR\jquery.signalR-2.2.0.min.js" />
     <Content Include="wwwroot\views\currency\currency.html" />
     <Content Include="wwwroot\views\index.html" />
     <Content Include="wwwroot\views\payup.html" />

@@ -8,4 +8,7 @@ namespace Finance.Standlone.Hubs
 
     [HubName("GinniePayupGrid")]
     public class GinniePayupGridHub : Hub { }
+
+    [HubName("CurrencyGridHub")]
+    public class CurrencyGridHub : Hub { }
 }
