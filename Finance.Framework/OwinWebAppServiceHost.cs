@@ -27,7 +27,7 @@ namespace Finance.Framework
             ConfigureAuth(appBuilder, container);
 
             httpConfiguration.DependencyResolver = new AutofacWebApiDependencyResolver(container);
-            
+            appBuilder.MapSignalR();
             appBuilder.UseFileServer(GetOpenFileOperations());
             appBuilder.UseAutofacMiddleware(container);
             appBuilder.UseAutofacWebApi(httpConfiguration);

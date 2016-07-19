@@ -1,9 +1,9 @@
 ﻿define(['jquery', 'kendo', 'currencyGrid','events'], function
-    ($, kendo, payupGrid, ginniePayupGrid, events) {
+    ($, kendo, currencyGrid, events) {
     function init(options) {
         events.publish('app.change_main_view_title', 'Currency Maintance');
         options.pathChanged && kendo.ui.progress($(document.body), false);
-        payupGrid.init(options);
+        currencyGrid.init(options);
 
         $("#currency_wrapper").kendoSplitter({
             orientation: 'vertical',
@@ -14,7 +14,7 @@
         });
     }
     function unactive() {
-        payupGrid.unactive();
+        currencyGrid.unactive();
         //ginniePayupGrid.unactive();
     }
     return { init: init, unactive: unactive };
