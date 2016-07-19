@@ -1,5 +1,4 @@
-﻿using System;
-using Finance.DAL.Records;
+﻿using Finance.DAL.Records;
 using Finance.Framework.Data;
 
 namespace Finance.DAL.DAOs
