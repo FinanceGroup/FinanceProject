@@ -48,6 +48,8 @@ namespace Finance.Standlone.Managers
             {
                 response.IsSuccess = false;
                 response.Message = ex.ToString();
+
+                Logger.Error(ex, "SaveCurrency failed");
             }
 
             return response;
@@ -68,6 +70,8 @@ namespace Finance.Standlone.Managers
             {
                 response.IsSuccess = false;
                 response.Message = ex.ToString();
+
+                Logger.Error(ex, "LoadCurrencies failed");
             }
 
             return response;
