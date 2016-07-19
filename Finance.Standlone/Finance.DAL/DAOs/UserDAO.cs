@@ -1,4 +1,5 @@
-﻿using Finance.DAL.Records;
+﻿using System;
+using Finance.DAL.Records;
 using Finance.Framework.Data;
 
 namespace Finance.DAL.DAOs
@@ -11,9 +12,16 @@ namespace Finance.DAL.DAOs
             _userRecordRepository = userRecordRepository;
         }
 
+        public UserRecord GetRecord(string userName)
+        {
+            var record = _userRecordRepository.Get(o => o.UserName == userName && o.IsActive);
+            return record;
+        }
+
         public UserRecord GetRecord(string userName, string password)
         {
-            var record = _userRecordRepository.Get(o => o.UserName == userName && o.Password == password);
+            var record = _userRecordRepository.Get(o => o.UserName == userName 
+                            && o.Password == password && o.IsActive);
             return record;
         }
     }

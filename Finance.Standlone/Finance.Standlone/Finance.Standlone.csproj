@@ -153,7 +153,10 @@
     <Compile Include="Conventions\IdConvention.cs" />
     <Compile Include="Conventions\StringColumnLengthConvention.cs" />
     <Compile Include="Data\SessionFactoryHolder.cs" />
+    <Compile Include="Extensions\CurrencyRecordExtension.cs" />
     <Compile Include="Hubs\PayUpGrid.cs" />
+    <Compile Include="Managers\CurrencyManager.cs" />
+    <Compile Include="Managers\ICurrencyManager.cs" />
     <Compile Include="OAuth\Esat2Authorize.cs" />
     <Compile Include="OAuth\SsoAuthenticate.cs" />
     <Compile Include="Program.cs" />
@@ -266,13 +269,16 @@
       <Project>{586f9db3-6110-4442-bf4c-578b13821ced}</Project>
       <Name>Finance.Framework</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Finance.Contract\Finance.Contract.csproj">
+      <Project>{c24f43bc-383c-4e12-bed9-2981c669773b}</Project>
+      <Name>Finance.Contract</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Finance.DAL\Finance.DAL.csproj">
       <Project>{8c249856-d63b-4e25-a042-b082a997cf13}</Project>
       <Name>Finance.DAL</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Managers\" />
     <Folder Include="wwwroot\image\" />
   </ItemGroup>
   <ItemGroup>

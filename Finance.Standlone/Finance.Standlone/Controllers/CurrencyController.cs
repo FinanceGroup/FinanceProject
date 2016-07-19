@@ -1,22 +1,45 @@
-﻿using Finance.DAL.DAOs;
+﻿using System;
+using System.Web.Http;
+
+using Finance.Contract.Requests;
 using Finance.Framework.Hubs;
 using Finance.Standlone.Hubs;
+using Finance.Standlone.Managers;
+
+using Newtonsoft.Json;
 
 namespace Finance.Standlone.Controllers
 {
     public class CurrencyController : ApiControllerWithHub<CurrencyGridHub>
     {
-        private readonly IUserDAO _userDAO = null;
-        public CurrencyController(IUserDAO userDAO)
+        private readonly ICurrencyManager _currencyManager = null;
+        public CurrencyController(ICurrencyManager currencyManager)
         {
-            _userDAO = userDAO;
+            _currencyManager = currencyManager;
         }
 
-        public string Get()
+        public IHttpActionResult Get()
         {
-            _userDAO.GetRecord("admin", "admin");
+            var response = _currencyManager.LoadCurrencies();
 
-            return "success";
+            if (response.IsSuccess)
+            {
+                return Ok(JsonConvert.SerializeObject(response));
+            }
+
+            return InternalServerError(JsonConvert.DeserializeObject<Exception>(response.Message));
+        }
+
+        public IHttpActionResult Post([FromBody] SaveCurrencyRequest request)
+        {
+            var response = _currencyManager.SaveCurrency(request);
+            
+            if (response.IsSuccess)
+            {
+                return Ok(JsonConvert.SerializeObject(response));
+            }
+
+            return InternalServerError(JsonConvert.DeserializeObject<Exception>(response.Message));
         }
     }
 }

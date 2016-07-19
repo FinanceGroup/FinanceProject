@@ -43,11 +43,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Attributes\DecimalFormatAttribute.cs" />
+    <Compile Include="DAOs\CurrencyDAO.cs" />
+    <Compile Include="DAOs\ICurrencyDAO.cs" />
     <Compile Include="DAOs\IUserDAO.cs" />
     <Compile Include="DAOs\UserDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Records\BaseRecord.cs" />
     <Compile Include="Records\BaseView.cs" />
+    <Compile Include="Records\CurrencyRecord.cs" />
     <Compile Include="Records\UserRecord.cs" />
   </ItemGroup>
   <ItemGroup>

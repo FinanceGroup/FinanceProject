@@ -6,5 +6,7 @@ namespace Finance.DAL.DAOs
     public interface IUserDAO : IDependency
     {
         UserRecord GetRecord(string userName, string password);
+
+        UserRecord GetRecord(string userName);
     }
 }
