@@ -41,7 +41,7 @@
             jszip:'../vendor/jszip/jszip.min',
             'kendo.all.min': '../vendor/kendo/kendo.all.min',
 
-            'signalr.core': '../verdor/signalR/jquery.signalR-2.2.0.min',
+            'signalr.core': '../vendor/signalR/jquery.signalR-2.2.0.min',
             'signalr.hubs': '/signalr/hubs?',
         },
         shim:{
