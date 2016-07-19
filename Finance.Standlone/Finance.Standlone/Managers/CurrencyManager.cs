@@ -5,6 +5,7 @@ using Finance.Contract.Bos;
 using Finance.Contract.Requests;
 using Finance.Contract.Responses;
 using Finance.DAL.DAOs;
+using Finance.Framework.Logging;
 using Finance.Standlone.Extensions;
 
 namespace Finance.Standlone.Managers
@@ -17,7 +18,11 @@ namespace Finance.Standlone.Managers
         {
             _userDAO = userDAO;
             _currencyDAO = currencyDAO;
+
+            Logger = NullLogger.Instance;
         }
+
+        public ILogger Logger { get; set; }
 
         public SaveCurrencyResponse SaveCurrency(SaveCurrencyRequest request)
         {
