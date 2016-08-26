@@ -25,6 +25,47 @@ namespace Finance.Standlone.Managers
 
         public ILogger Logger { get; set; }
 
+        public SaveCurrencyResponse UpdateCurrency(SaveCurrencyRequest request)
+        {
+            var response = new SaveCurrencyResponse();
+
+            try
+            {
+                var userRecord = _userDAO.GetRecord(request.userName);
+
+                var currencyRecord = _currencyDAO.GetRecord(request.currencyCode);
+                
+                currencyRecord.AccountingRates = request.AccountingRates;
+                currencyRecord.CreatedTime = DateTime.Now;
+                currencyRecord.CurrencyCode = request.currencyCode;
+                currencyRecord.CurrencyName = request.currencyName;
+                currencyRecord.DecimalPlaces = request.decimalPlaces;
+                currencyRecord.IsActive = true;
+                currencyRecord.UpdatedBy = userRecord.UserName;
+                currencyRecord.UpdatedTime = DateTime.Now;
+                currencyRecord.UpdatedByDisplayName = userRecord.UserName;
+
+                 currencyRecord = _currencyDAO.UpdateRecord(currencyRecord);
+             
+
+                var currencyBo = currencyRecord.ToCurrencyBo();
+
+                response.Bos = new List<CurrencyBo> { currencyBo };
+
+                response.IsSuccess = true;
+                response.Message = string.Empty;
+            }
+            catch (Exception ex)
+            {
+                response.IsSuccess = false;
+                response.Message = ex.ToString();
+
+                Logger.Error(ex, "ModifyCurrency failed");
+            }
+
+            return response;
+        }
+
         public SaveCurrencyResponse SaveCurrency(SaveCurrencyRequest request)
         {
             var response = new SaveCurrencyResponse();
@@ -36,7 +77,7 @@ namespace Finance.Standlone.Managers
                 var currencyRecord = _currencyDAO.ConstructRecord(request.currencyCode, request.currencyName,
                     request.AccountingRates, request.decimalPlaces, userRecord.UserName, userRecord.UserName);
 
-                currencyRecord = _currencyDAO.SaveRecord(currencyRecord);
+                currencyRecord = _currencyDAO.CreateRecord(currencyRecord);
 
                 var currencyBo = currencyRecord.ToCurrencyBo();
 

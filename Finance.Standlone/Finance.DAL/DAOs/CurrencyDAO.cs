@@ -45,9 +45,15 @@ namespace Finance.DAL.DAOs
             return records;
         }
 
-        public CurrencyRecord SaveRecord(CurrencyRecord record)
+        public CurrencyRecord CreateRecord(CurrencyRecord record)
         {
             _currencyRecordRepository.Create(record);
+            return record;
+        }
+
+        public CurrencyRecord UpdateRecord(CurrencyRecord record)
+        {
+            _currencyRecordRepository.Update(record);
             return record;
         }
     }

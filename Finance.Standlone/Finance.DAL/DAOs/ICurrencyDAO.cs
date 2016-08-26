@@ -9,7 +9,8 @@ namespace Finance.DAL.DAOs
     {
         IEnumerable<CurrencyRecord> LoadRecords();
         CurrencyRecord GetRecord(string currencyCode);
-        CurrencyRecord SaveRecord(CurrencyRecord record);
+        CurrencyRecord CreateRecord(CurrencyRecord record);
+        CurrencyRecord UpdateRecord(CurrencyRecord record);
 
         CurrencyRecord ConstructRecord(string currencyCode, string currencyName,
             decimal AccountingRates, int decimalPlaces, string userName, string userDisplayName);

@@ -30,10 +30,22 @@ namespace Finance.Standlone.Controllers
             return InternalServerError(JsonConvert.DeserializeObject<Exception>(response.Message));
         }
 
-        public IHttpActionResult Post([FromBody] SaveCurrencyRequest request)
+        public IHttpActionResult Put([FromBody] SaveCurrencyRequest request)
         {
             var response = _currencyManager.SaveCurrency(request);
             
+            if (response.IsSuccess)
+            {
+                return Ok(JsonConvert.SerializeObject(response));
+            }
+
+            return InternalServerError(JsonConvert.DeserializeObject<Exception>(response.Message));
+        }
+
+        public IHttpActionResult Post([FromBody] SaveCurrencyRequest request)
+        {
+            var response = _currencyManager.UpdateCurrency(request);
+
             if (response.IsSuccess)
             {
                 return Ok(JsonConvert.SerializeObject(response));

@@ -6,6 +6,7 @@ namespace Finance.Standlone.Managers
 {
     public interface ICurrencyManager : IDependency
     {
+        SaveCurrencyResponse UpdateCurrency(SaveCurrencyRequest request);
         SaveCurrencyResponse SaveCurrency(SaveCurrencyRequest request);
 
         GetCurrenciesResponse LoadCurrencies();
